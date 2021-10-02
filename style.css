@@ -19,6 +19,14 @@ h2,.white{
     color: #fff;
 }
 
+.green{
+    color: #33FF00;
+}
+
+em{
+    color: #33FF00;
+}
+
 a{
     color: #7A7C80;
     text-decoration: none;
@@ -80,6 +88,16 @@ a{
     color: #fff;
     cursor: pointer;
     transition: 0.3s;
+}
+
+
+.section-2 .fa-stack{
+    padding: 3px;
+    font-size: 2.5rem;
+}
+
+.white-icon{
+    color: #fff;
 }
 
 .white:hover{
