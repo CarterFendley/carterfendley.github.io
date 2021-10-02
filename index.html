@@ -19,11 +19,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>// Carter Fendley</title>
+
+    <script src="http://code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
     <div class="grid-2">
         <div class="section-1">
-            <h2 class="green">// Carter Fendley</h2>
+            <h2 class="green">@START_COMMENT@Carter Fendley@END_COMMENT@</h2>
             <h3>Software Engineer</h3>
             <p>New York, NY.</p>
             <a href="https://www.linkedin.com/in/carter-f-260473121/"><i class="fab fa-linkedin"></i></a>
@@ -75,7 +77,7 @@
                 <i class="fas fa-circle fa-stack-2x white-icon"></i>
                 <i class="fab fa-java fa-stack-1x"></i>
             </span>
-            <p>Also C++, Kotlin, Bash Scripting but Font Awesome doesn't have pretty icons for those. <em>// Sad noises until I write a workaround. </em></p>
+            <p>Also C++, Kotlin, Bash Scripting but Font Awesome doesn't have pretty icons for those. <em>@START_COMMENT@Sad noises until I write a workaround.@END_COMMENT@</em></p>
 
             <h3>Tools</h3>
             <span class="fa-stack fa-3x">
@@ -106,5 +108,28 @@
             <p>Developed model agnostic ML tooling for training Python models in the C++ environment of MOOS-IvP. Saw 50x speed up during training time / data collection from existing solutions. Used Python's C API to remove need for redundant development. See website for more information.</p>
         </div>
     </div>
+
+    <script>
+        var comment_strings = [
+            ['// ', ''],
+            ['# ', ''],
+            ["' ' ' ", " ' ' '"],
+            ['REM ', ''],
+            ['/* ', ' */'],
+            ['&lt;!-- ', ' --&gt;'],
+            ['{- ', ' -}'],
+        ]
+
+        var idx = Math.floor(Math.random()*(comment_strings.length))
+
+        console.log("Adding :", comment_strings[idx])
+
+        $("body").children().each(function () {
+            $(this).html( $(this).html().replace(/@START_COMMENT@/g, comment_strings[idx][0]) );
+        });
+        $("body").children().each(function () {
+            $(this).html( $(this).html().replace(/@END_COMMENT@/g, comment_strings[idx][1]) );
+        });
+    </script>
 </body>
 </html>
